@@ -48,9 +48,9 @@ const StudentWiseModification = () => {
                   onChange={(e) => setStudentId(e.target.value)}
                   className="flex-1"
                 />
-                <Button type="submit">
+                {/* <Button type="submit">
                   <Search className="mr-2 h-4 w-4" /> Find
-                </Button>
+                </Button> */}
               </div>
             </div>
             

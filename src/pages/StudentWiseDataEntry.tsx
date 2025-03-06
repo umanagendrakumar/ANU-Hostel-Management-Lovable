@@ -49,9 +49,9 @@ const StudentWiseDataEntry = () => {
                   onChange={(e) => setStudentId(e.target.value)}
                   className="flex-1"
                 />
-                <Button type="submit" variant="outline">
+                {/* <Button type="submit" variant="outline">
                   <Search className="mr-2 h-4 w-4" /> Find
-                </Button>
+                </Button> */}
               </div>
             </div>
             

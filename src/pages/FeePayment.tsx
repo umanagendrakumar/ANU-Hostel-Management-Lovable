@@ -2,13 +2,23 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 import { useNavigate } from 'react-router-dom';
-import { DollarSign, Wallet, CreditCard } from 'lucide-react';
+import { DollarSign, Wallet, CreditCard, ArrowLeft} from 'lucide-react';
+import { Button } from '../components/ui/button';
+
 
 const FeePayment = () => {
   const navigate = useNavigate();
 
   return (
     <div className="container mx-auto p-6">
+      <Button 
+        variant="outline" 
+        className="mb-6" 
+        onClick={() => navigate('/dashboard')}
+        size="sm"
+      >
+        <ArrowLeft className="mr-2 h-4 w-4" /> Back
+      </Button>
       <h1 className="text-3xl font-bold mb-6">Fee Payment</h1>
       <p className="text-gray-600 mb-8">Select the type of fee payment you would like to perform</p>
       

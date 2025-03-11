@@ -73,12 +73,60 @@ const StudentForm = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would handle form submission, e.g., saving to a database
-    toast.success('Student data saved successfully');
-    navigate('/dashboard/data-entry');
-  };
+
+    const formData = {
+        hostel_id: "H123",
+        roll_no: "123456",
+        full_name: "John Doe",
+        dob: "2002-05-15",
+        age: "22",
+        degree: "BTech",
+        year: "3rd",
+        course: "CSE",
+        department: "Computer Science",
+        college: "XYZ University",
+        student_phone: "9876543210",
+        email: "johndoe@example.com",
+        address: "123 Street, City",
+        native_place: "Hometown",
+        distance: "50km",
+        category: "General",
+        blood_group: "B+",
+        scholarship: "No",
+        physically_challenged: "No",
+        mess_option: "Veg",
+        previous_resident: "No",
+        father_name: "Mr. Doe",
+        occupation: "Engineer",
+        annual_income: "500000",
+        guardian_phone: "9876543210"
+    };
+
+    try {
+        const response = await fetch("http://localhost/submit_student.php", {
+            method: "POST",
+            // credentials: "include",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Server Error: ${response.status} ${response.statusText}`);
+        }
+
+        const result = await response.json();
+        console.log(result);
+        alert(result.message);
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Something went wrong! " + error.message);
+    }
+};
+
 
   return (
     <div className="container mx-auto p-6">

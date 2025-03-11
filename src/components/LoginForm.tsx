@@ -10,35 +10,41 @@ const LoginForm: React.FC = () => {
   const [password, setPassword] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setError(null);
+  
+  //   try {
+  //     const response = await fetch("http://localhost/login.php", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({ email: username, password }), // Make sure `email` is being sent
+  //       credentials: "include",
+  //     });
+  
+  //     const text = await response.text(); // Debugging: Get raw response
+  //     console.log("Raw Response:", text);
+  
+  //     const data = JSON.parse(text); // Try to parse JSON
+  //     console.log("Parsed Data:", data);
+  
+  //     if (data.success) {
+  //       navigate("/dashboard");
+  //     } else {
+  //       setError(data.message || "Invalid credentials");
+  //     }
+  //   } catch (err) {
+  //     console.error("Fetch error:", err);
+  //     setError("Server error. Please try again.");
+  //   }
+  // };
+
+  
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setError(null);
-  
-    try {
-      const response = await fetch("http://localhost/login.php", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email: username, password }), // Make sure `email` is being sent
-        credentials: "include",
-      });
-  
-      const text = await response.text(); // Debugging: Get raw response
-      console.log("Raw Response:", text);
-  
-      const data = JSON.parse(text); // Try to parse JSON
-      console.log("Parsed Data:", data);
-  
-      if (data.success) {
-        navigate("/dashboard");
-      } else {
-        setError(data.message || "Invalid credentials");
-      }
-    } catch (err) {
-      console.error("Fetch error:", err);
-      setError("Server error. Please try again.");
-    }
+    navigate('/dashboard');
   };
   
 

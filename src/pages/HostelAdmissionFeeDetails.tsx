@@ -114,7 +114,7 @@ const HostelAdmissionFeeDetails = () => {
           <Card key={year} className="shadow-md hover:shadow-lg transition-all duration-300">
             <CardHeader>
               <CardTitle className="text-lg md:text-xl">
-                {year}st Year HAF
+                {year} Year HAF
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
